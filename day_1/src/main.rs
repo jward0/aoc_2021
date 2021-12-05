@@ -15,7 +15,7 @@ fn ints_from_file<R: Read>(io: R) -> Result<Vec<i64>, Error> {
         v.push(line?
             .trim()
             .parse()
-            );
+            .map_err(|e| Error::new(ErrorKind::InvalidData, e))?);
     }
     Ok(v)
 }
