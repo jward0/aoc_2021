@@ -37,12 +37,8 @@ struct VentLine {
     is_straight: bool
 }
 
-trait VentLineTrait {
 
-    fn new (axis_bounds: Vec<u32>) -> Self;
-}
-
-impl VentLineTrait for VentLine {
+impl VentLine {
 
     fn new (axis_bounds: Vec<u32>) -> Self {
 
@@ -108,6 +104,7 @@ fn part_1(input: &Vec<VentLine>) -> Result<i32, Error> {
 
     Ok(running_total)
 }
+
 
 fn part_2(input: &Vec<VentLine>) -> Result<i32, Error> {
 
