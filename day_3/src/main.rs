@@ -96,7 +96,7 @@ fn part_2(input: &Vec<String>) -> Result<i32, Error> {
 fn split_vector(input: &Vec<i32>, exponent: &i32) -> (Vec<i32>, Vec<i32>) {
 
     let mut one_vec : Vec<i32> = Vec::new();
-    let mut zero_vec :Vec<i32> = Vec::new();
+    let mut zero_vec : Vec<i32> = Vec::new();
 
     let mask = i32::pow(2, (exponent + 1) as u32) - 1;
 
