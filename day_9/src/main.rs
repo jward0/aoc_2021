@@ -78,8 +78,6 @@ struct Point {
 
 
 struct PathSection {
-    origin: Point,
-    next_steps: Vec<Point>,
     size: u32
 }
 
@@ -153,13 +151,8 @@ impl PathSection {
             }
         }
 
-        PathSection{origin: start_point, next_steps: next_steps, size:*size}
+        PathSection{size:*size}
 
-    }
-
-    fn return_size(_: Self) -> u32 {
-
-        0
     }
 }
 
@@ -217,25 +210,14 @@ fn part_2(input: &Vec<Vec<u32>>) -> u32 {
         let mut visited_list: Vec<(usize, usize)> = vec![];
         let mut size: u32 = 0;
         let basin = PathSection::new(*low_point, input, &mut visited_list, &mut size);
-        //basin_sizes.push(PathSection::return_size(basin));
         basin_sizes.push(basin.size);
         // println!("======================");
     }
 
-    //for item in &basin_sizes {
-    //    println!("{}", item);
-    //}
+    basin_sizes.sort();
+    let n = basin_sizes.len();
 
-
-    //let sorted_sizes: Vec<u32> = basin_sizes.sort();
-    for item in basin_sizes.iter() {
-        println!("{}", item);
-    }
-    //let basin_count = sorted_sizes.len();
-
-    //sorted_sizes[basin_count-1]*sorted_sizes[basin_count-2]*sorted_sizes[basin_count-3]
-
-    0
+    basin_sizes[n-1]*basin_sizes[n-2]*basin_sizes[n-3]
 }
 
 
